@@ -15,21 +15,21 @@ We have modified shell script to work with OKD.
 
 | Option  |Description   |
 | :------------ | :------------ |
-| -O, --okd-version VERSION | You can set this to a specific version like 4.5.0-0.okd-2020-08-12-020541 etc. More info on https://github.com/OKD/okd/releases.<br>Default: stable |
+| -O, --okd-version VERSION | You can set this to a specific version like 4.5.0-0.okd-2020-08-12-020541 etc. More info on https://github.com/OKD/okd/releases.<br>Default: 4.5.0-0.okd-2020-08-12-020541 |
 | -R, --rhcos-version VERSION | You can set a specific FCOS version to use. For example "32.20200809.3.0" etc. More info on https://getfedora.org/coreos/download?tab=metal_virtualized&stream=stable.<br>Default: 32.20200809.3.0  |
 | -p, --pull-secret FILE | Location of the pull secret file<br>Default: /root/pull-secret |
 | -c, --cluster-name NAME | OKD 4 cluster name<br>Default: okd4 |
 | -d, --cluster-domain DOMAIN | OKD 4 cluster domain<br>Default: local |
 | -m, --masters N | Number of masters to deploy<br>Default: 3 |
 | -w, --worker N | Number of workers to deploy<br>Default: 2 |
-| --master-cpu N | Number of CPUs for the master VM(s)<br>Default: 4 |
+| --master-cpu N | Number of CPUs for the master VM(s)<br>Default: 8 |
 | --master-mem SIZE(MB) | RAM size (MB) of master VM(s)<br>Default: 16000 |
 | --worker-cpu N | Number of CPUs for the worker VM(s)<br>Default: 4 |
 | --worker-mem SIZE(MB) | RAM size (MB) of worker VM(s)<br>Default: 8000 |
-| --bootstrap-cpu N | Number of CPUs for the bootstrap VM<br>Default: 4 |
+| --bootstrap-cpu N | Number of CPUs for the bootstrap VM<br>Default: 8 |
 | --bootstrap-mem SIZE(MB) | RAM size (MB) of bootstrap VM<br>Default: 16000 |
-| --lb-cpu N | Number of CPUs for the load balancer VM<br>Default: 1 |
-| --lb-mem SIZE(MB) | RAM size (MB) of load balancer VM<br>Default: 1024 |
+| --lb-cpu N | Number of CPUs for the load balancer VM<br>Default: 4 |
+| --lb-mem SIZE(MB) | RAM size (MB) of load balancer VM<br>Default: 4000 |
 | -n, --libvirt-network NETWORK | The libvirt network to use. Select this option if you want to use an existing libvirt network<br>The libvirt network should already exist. If you want the script to create a separate network for this installation see: -N, --libvirt-oct<br>Default: default |
 | -N, --libvirt-oct OCTET | You can specify a 192.168.{OCTET}.0 subnet octet and this script will create a new libvirt network for the cluster<br>The network will be named okd-{OCTET}. If the libvirt network okd-{OCTET} already exists, it will be used.<br>Default: [not set] |
 | -v, --vm-dir | The location where you want to store the VM Disks<br>Default: /var/lib/libvirt/images |
