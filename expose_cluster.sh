@@ -1,5 +1,4 @@
 #!/bin/bash
-# https://github.com/kxr/ocp4_setup_upi_kvm
 
 ###############################################################################
 # .expose_loadbalancer.sh

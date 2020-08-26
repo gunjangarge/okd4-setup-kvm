@@ -1,5 +1,4 @@
 #!/bin/bash
-# Original work -- https://github.com/kxr/OKD4_setup_upi_kvm
 
 set -e
 START_TS=$(date +%s)
@@ -176,7 +175,7 @@ echo "Usage: ${0} [OPTIONS]"
 echo
 cat << EOF | column -t -s '|' -N OPTION,DESCRIPTION -W DESCRIPTION
 
--O, --okd-version VERSION|The OpenShift version to install.
+-O, --okd-version VERSION|The OKD version to install.
 |You can set this to a specific version like "4.5.0-0.okd-2020-08-12-020541" etc. More info on https://github.com/openshift/okd/releases.
 |Default: 4.5.0-0.okd-2020-08-12-020541
 
@@ -186,10 +185,10 @@ cat << EOF | column -t -s '|' -N OPTION,DESCRIPTION -W DESCRIPTION
 -p, --pull-secret FILE|Location of the pull secret file
 |Default: /opt/pull-secret
 
--c, --cluster-name NAME|OpenShift 4 cluster name
+-c, --cluster-name NAME|OKD 4 cluster name
 |Default: OKD4
 
--d, --cluster-domain DOMAIN|OpenShift 4 cluster domain
+-d, --cluster-domain DOMAIN|OKD 4 cluster domain
 |Default: local
 
 -m, --masters N|Number of masters to deploy
@@ -239,7 +238,7 @@ cat << EOF | column -t -s '|' -N OPTION,DESCRIPTION -W DESCRIPTION
 -s, --setup-dir DIR|The location where we the script keeps all the files related to the installation
 |Default: /opt/OKD4_setup_{CLUSTER_NAME}
 
--x, --cache-dir DIR|To avoid un-necessary downloads we download the OpenShift/FCOS files to a cache directory and reuse the files if they exist
+-x, --cache-dir DIR|To avoid un-necessary downloads we download the OKD/FCOS files to a cache directory and reuse the files if they exist
 |This way you only download a file once and reuse them for future installs
 |You can force the script to download a fresh copy by using -X, --fresh-download
 |Default: /opt/OKD4_downloads
@@ -272,7 +271,7 @@ echo "# Deploy OKD 4.5.0-0.okd-2020-08-12-020541 cluster with FCOS 32.20200809.3
 echo "${0} --okd-version 4.3.12 --fcos-version 32.20200809.3.0"
 echo "${0} -O 4.5.0-0.okd-2020-08-12-020541 -R 32.20200809.3.0"
 echo 
-echo "# Deploy OpenShift 4.5.0-0.okd-2020-08-12-020541 with custom cluster name and domain"
+echo "# Deploy OKD 4.5.0-0.okd-2020-08-12-020541 with custom cluster name and domain"
 echo "${0} --cluster-name OKD45 --cluster-domain lab.test.com --okd-version 4.5.0-0.okd-2020-08-12-020541"
 echo "${0} -c OKD45 -d lab.test.com -O 4.5.0-0.okd-2020-08-12-020541"
 echo
@@ -858,7 +857,7 @@ systemctl $DNS_CMD $DNS_SVC || err "systemctl $DNS_CMD $DNS_SVC failed"; ok
 
 echo 
 echo "############################################"
-echo "#### CREATE BOOTSTRAPING FCOS/OCP NODES ###"
+echo "#### CREATE BOOTSTRAPING FCOS/OKD NODES ###"
 echo "############################################"
 echo 
 
@@ -1227,6 +1226,6 @@ export DNS_SVC="$DNS_SVC"
 
 export KUBECONFIG="${SETUP_DIR}/install_dir/auth/kubeconfig"
 EOF
-cp ${SDIR}/.add_node.sh ${SETUP_DIR}/add_node.sh
-cp ${SDIR}/.expose_cluster.sh ${SETUP_DIR}/expose_cluster.sh
+cp ${SDIR}/add_node.sh ${SETUP_DIR}/add_node.sh
+cp ${SDIR}/expose_cluster.sh ${SETUP_DIR}/expose_cluster.sh
 
