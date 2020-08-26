@@ -15,7 +15,6 @@ We have modified shell script to work with OKD.
 
 | Option  |Description   |
 | :------------ | :------------ |
-|______________________________||
 | -O, --okd-version VERSION | You can set this to a specific version like 4.5.0-0.okd-2020-08-12-020541 etc. More info on https://github.com/OKD/okd/releases.<br>Default: stable |
 | -R, --rhcos-version VERSION | You can set a specific FCOS version to use. For example "32.20200809.3.0" etc. More info on https://getfedora.org/coreos/download?tab=metal_virtualized&stream=stable.<br>Default: 32.20200809.3.0  |
 | -p, --pull-secret FILE | Location of the pull secret file<br>Default: /root/pull-secret |
